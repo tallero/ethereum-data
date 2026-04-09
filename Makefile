@@ -105,7 +105,7 @@ build-split:
 	  "build/COPYING"
 	_chains_amount="$$( \
 	  cat \
-	    "$${_chains_file}" | \
+	    "chains.json" | \
 	    jq \
 	      length)"; \
 	_msg=( \
@@ -114,7 +114,7 @@ build-split:
 	); \
 	echo \
 	 "$${_msg[*]}"; \
-	_index_end="$(( \
+	_index_end="$$(( \
 	  "$${_chains_amount}" - \
 	  1 ))"; \
 	for _index \
@@ -125,7 +125,7 @@ build-split:
 	  _network="$$( \
 	    jq \
 	      "$${_jq_query}" \
-	      "$${_chains_file}")"; \
+	      "chains.json")"; \
 	  _msg=( \
 	    "Network '$${_index}'" \
 	    "out of '$${_index_end}'." \
