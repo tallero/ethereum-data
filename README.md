@@ -28,9 +28,29 @@
 
 # EVM Chains
 
-Currently NPM mirror of chains list managed by Ligi.
-Later JSON obtained from the smart contract version
-of that list.
+Currently
+[EVMFS](
+  https://github.com/themartiancompany/evmfs)
+and
+[NPM](
+  https://www.npmjs.com)
+mirrors of the blockchain networks dataset managed by
+[Ligi](
+  https://github.com/themartiancompany/chains).
+
+At a later point JSON obtained from a smart
+editable contract version deployment of the data
+on that list.
+
+Right now it is in the sense that you can edit
+the evmfs link in the Makefile to point to another
+JSON.
+
+The smart contract deployment is supposed to
+mirror the data, or at least contain the RPC
+links because this package is a dependency for
+[LibEVM](
+  https://github.com/themartiancompany/libevm).
 
 ## License
 
