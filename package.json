@@ -1,0 +1,61 @@
+{
+  "name":
+    "evm-chains",
+  "version":
+    "0.0.4",
+  "description":
+    "Data about Ethereum Blokchain networks",
+  "funding": {
+    "type":
+      "patreon",
+    "url":
+      "https://patreon.com/tallero"
+  },
+  "man": [
+  ],
+  "files": [
+    "AUTHORS.rst",
+    "COPYING",
+    "README.md",
+    "chains.json",
+    "chains"
+  ],
+  "keywords": [
+    "ur",
+    "themartiancompany",
+    "dogeos",
+    "ethereum"
+  ],
+  "homepage":
+    "https://github.com/themartiancompany/evm-chains",
+  "bugs": {
+    "url":
+      "https://github.com/themartiancompany/evm-chains/issues"
+  },
+  "repository": {
+    "type":
+      "git",
+    "url":
+      "git+https://github.com/themartiancompany/evm-chains.git"
+  },
+  "license":
+    "AGPL-3.0-or-later",
+  "author": {
+    "name":
+      "Pellegrino Prevete",
+    "email":
+      "pellegrinoprevete@gmail.com",
+    "url":
+      "https://github.com/tallero"
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  },
+  "type":
+    "commonjs",
+  "scripts": {
+    "publish-pnm":
+      "npm run build && npm publish --access public"
+  }
+}
