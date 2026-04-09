@@ -70,7 +70,8 @@ _INSTALL_TARGETS_ALL=\
 _PHONY_TARGETS=\
   $(_BUILD_TARGETS_ALL) \
   $(_CHECK_TARGETS_ALL) \
-  $(_INSTALL_TARGETS_ALL)
+  $(_INSTALL_TARGETS_ALL) \
+  publish-npm
   
 all: build build-split
 
@@ -88,11 +89,11 @@ build:
 
 	mkdir \
 	 -p \
-	 "build"
+	 "build/chains"
 	install \
 	  -vDm644 \
 	  "chains.json" \
-	  "build"
+	  "build/chains"
 
 build-split:
 
@@ -191,5 +192,14 @@ install-man:
 	rst2man \
 	  "man/evm-contract-deployer-get.1.rst" \
 	  "$(MAN_DIR)/man1/evm-contract-deployer-get.1"
+
+publish-npm:
+
+	cd \
+	  "build"; \
+	npm \
+	  publish \
+	  --access \
+	    "public"
 
 .PHONY: $(_PHONY_TARGETS)
