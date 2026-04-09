@@ -100,10 +100,12 @@ build-split:
 	mkdir \
 	 -p \
 	 "build"
-	install \
-	  -vDm644 \
+	$(_INSTALL_FILE) \
 	  "COPYING" \
 	  "build/COPYING"
+	$(_INSTALL_FILE) \
+	  "package.json" \
+	  "build/package.json"
 	_chains_amount="$$( \
 	  cat \
 	    "chains.json" | \

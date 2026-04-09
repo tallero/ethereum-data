@@ -2,9 +2,9 @@
   "name":
     "evm-chains",
   "version":
-    "0.0.4",
+    "0.0.1",
   "description":
-    "Data about Ethereum Blokchain networks",
+    "Data about Ethereum Virtual Machine networks.",
   "funding": {
     "type":
       "patreon",

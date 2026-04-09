@@ -25,9 +25,9 @@
    If not, see <https://www.gnu.org/licenses/>.
 
 
-=====================================
-Ethereum blockchain networks data
-=====================================
+=======================================
+Ethereum Virtual Machine networks data
+=======================================
 
 
 * Pellegrino Prevete
