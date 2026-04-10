@@ -163,10 +163,6 @@ build-split:
 	    jq \
 	      "$${_jq_query}" \
 	      "chains.json")"; \
-	  _msg=( \
-	    "Network '$${_index}'" \
-	    "out of '$${_index_end}'." \
-	  ); \
 	  _chain_id="$$( \
 	    echo \
 	      "$${_network}" | \
