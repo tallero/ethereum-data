@@ -90,6 +90,13 @@ build:
 	mkdir \
 	 -p \
 	 "build/chains"
+	if [[ ! -e "chains.json" ]]; then \
+	  evmfs \
+	    get \
+	    -o \
+	      "chains.json" \
+	    "evmfs://100/0x87003Bd6C074C713783df04f36517451fF34CBEf/168bdbec23925a4f61ad97a1fd9cabeff0540ce15ad200d9da7b70c15a16f533"; \
+	fi
 	install \
 	  -vDm644 \
 	  "chains.json" \
@@ -190,6 +197,12 @@ install-man:
 	rst2man \
 	  "man/evm-contract-deployer-get.1.rst" \
 	  "$(MAN_DIR)/man1/evm-contract-deployer-get.1"
+
+publish:
+
+	evmfs \
+	  publish \
+	  "build/chains/chains.json"
 
 publish-npm:
 
