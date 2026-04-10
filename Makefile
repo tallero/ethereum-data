@@ -126,6 +126,12 @@ build-npm:
 	mkdir \
 	 -p \
 	 "build/chains"
+	cp \
+	  "README.md" \
+	  "package.json" \
+	  "build"
+	cd \
+	  "build" && \
 	npm \
 	  pack
 
