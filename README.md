@@ -77,6 +77,7 @@ with the command
 npm \
   install \
   "ethereum-data"
+```
 
 ## Forking (re-publishing) a new list
 
