@@ -102,6 +102,14 @@ build:
 	  "chains.json" \
 	  "build/chains"
 
+build-npm:
+
+	mkdir \
+	 -p \
+	 "build/chains"
+	npm \
+	  pack
+
 build-split:
 
 	mkdir \
@@ -186,17 +194,22 @@ install-doc:
 
 install-man:
 
-	$(_INSTALL_DIR) \
-	  "$(MAN_DIR)/man1"
-	rst2man \
-	  "man/evm-contract-bytecode-get.1.rst" \
-	  "$(MAN_DIR)/man1/evm-contract-bytecode-get.1"
-	rst2man \
-	  "man/evm-contract-call.1.rst" \
-	  "$(MAN_DIR)/man1/evm-contract-call.1"
-	rst2man \
-	  "man/evm-contract-deployer-get.1.rst" \
-	  "$(MAN_DIR)/man1/evm-contract-deployer-get.1"
+	git \
+	  submodule \
+	    update \
+	      --init \
+	      "man"
+	mkdir \
+	  -p \
+	  "build"
+	cp \
+	  -r \
+	  "man" \
+	  "build"
+	cd \
+	  "build/man" && \
+	make \
+	  "build-man"
 
 publish:
 
