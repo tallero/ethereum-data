@@ -20,6 +20,9 @@
     "chains.json",
     "chains",
     "data-get",
+    "fs-worker.js",
+    "fs-worker.webpack.config.js",
+    "serve.json",
     "webpack.config.cjs"
   ],
   "keywords": [
@@ -75,11 +78,15 @@
   "type":
     "commonjs",
   "scripts": {
+    "build":
+      "npm run lint && npm run build-fs-worker && npm run build-lib",
     "build-fs-worker":
       "npx webpack --mode 'production' --config 'fs-worker.webpack.config.cjs' --stats-error-details",
+    "build-lib":
+      "npx webpack --mode 'production' --config 'webpack.config.cjs' --stats-error-details",
     "build":
       "npm run lint && npm run build-lib",
-    "publish-pnm":
+    "publish-npm":
       "npm run build && npm publish --access public",
     "lint":
       "npx eslint .",
