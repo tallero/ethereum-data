@@ -19,7 +19,8 @@
     "README.md",
     "chains.json",
     "chains",
-    "data-get"
+    "data-get",
+    "webpack.config.cjs"
   ],
   "keywords": [
     "ur",
