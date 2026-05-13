@@ -111,32 +111,22 @@ build-man:
 	make \
 	  "build-man"
 
-build-npm:
+build-unified:
 
 	mkdir \
 	 -p \
 	 "build/chains"
-	cp \
-	  "README.md" \
-	  "eslint.config.mjs" \
-	  "package.json" \
-	  "data-get" \
-	  "webpack.config.cjs" \
-	  "build"
-	cd \
-	  "build" && \
-	npm \
-	  install \
-	  .
-	npm \
-	  install \
-	  --save-dev \
-	  .
-	npm \
-	  run \
-            build
-	npm \
-	  pack
+	if [[ ! -e "chains.json" ]]; then \
+	  evmfs \
+	    get \
+	    -o \
+	      "chains.json" \
+	    "evmfs://100/0x87003Bd6C074C713783df04f36517451fF34CBEf/168bdbec23925a4f61ad97a1fd9cabeff0540ce15ad200d9da7b70c15a16f533"; \
+	fi
+	install \
+	  -vDm644 \
+	  "chains.json" \
+	  "build/chains"
 
 build-split:
 
@@ -206,24 +196,40 @@ build-split:
 	  fi \
 	done
 
-build-unified:
+build-npm:
 
 	mkdir \
 	 -p \
 	 "build/chains"
-	if [[ ! -e "chains.json" ]]; then \
-	  evmfs \
-	    get \
-	    -o \
-	      "chains.json" \
-	    "evmfs://100/0x87003Bd6C074C713783df04f36517451fF34CBEf/168bdbec23925a4f61ad97a1fd9cabeff0540ce15ad200d9da7b70c15a16f533"; \
-	fi
-	install \
-	  -vDm644 \
-	  "chains.json" \
-	  "build/chains"
+	cp \
+	  "AUTHORS.rst" \
+	  "COPYING" \
+	  "README.md" \
+	  "Makefile" \
+	  "eslint.config.mjs" \
+	  "package.json" \
+	  "data-get" \
+	  "webpack.config.cjs" \
+	  "build" \
+	cd \
+	  "build" && \
 	make \
-	  build-npm
+	  build-unified
+	make \
+	  build-split
+	npm \
+	  install \
+	  .
+	npm \
+	  install \
+	  --save-dev \
+	  .
+	npm \
+	  run \
+            build
+	npm \
+	  pack
+
 
 install: $(_INSTALL_TARGETS)
 
