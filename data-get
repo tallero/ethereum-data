@@ -33,11 +33,13 @@ const
     require(
       "crash-js");
 /* global
-     _json_read */
+     _json_read:
+       writable */
 _json_read =
   _libcrash_module._json_read;
 /* global
-     _path_join */
+     _path_join:
+       writable */
 _path_join =
   _libcrash_module._path_join;
 
