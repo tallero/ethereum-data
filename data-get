@@ -78,7 +78,7 @@ function
     _path =
       _path_join(
         ["chains",
-         `chains.json`];
+         `chains.json`]);
   const
     _data =
       _json_read(
