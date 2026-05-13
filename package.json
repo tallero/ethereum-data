@@ -18,7 +18,8 @@
     "COPYING",
     "README.md",
     "chains.json",
-    "chains"
+    "chains",
+    "data-get"
   ],
   "keywords": [
     "ur",
@@ -26,6 +27,8 @@
     "dogeos",
     "ethereum"
   ],
+  "main":
+    "data-get",
   "homepage":
     "https://github.com/themartiancompany/ethereum-data",
   "bugs": {
@@ -49,13 +52,23 @@
       "https://github.com/tallero"
   },
   "devDependencies": {
+    "eslint":
+      "^10.0.3"
   },
   "dependencies": {
+    "crash-js":
+      "^0.1.91"
   },
   "type":
     "commonjs",
   "scripts": {
+    "build":
+      "npm run lint && npm run build-lib",
     "publish-pnm":
-      "npm run build && npm publish --access public"
+      "npm run build && npm publish --access public",
+    "lint":
+      "npx eslint .",
+    "test":
+      "echo \"Error: no test specified\" && exit 1"
   }
 }

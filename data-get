@@ -1,0 +1,75 @@
+#!/usr/bin/env node
+
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+/**    ----------------------------------------------------------------
+ *     data-get
+ *     ----------------------------------------------------------------
+ *     Copyright ©
+ *       Pellegrino Prevete
+ *         2025, 2026
+ * 
+ *     All rights reserved
+ *     ----------------------------------------------------------------
+ * 
+ *     This program is free software: you can redistribute it and/or
+ *     modify it under the terms of the GNU General Public License as
+ *     published by the Free Software Foundation, either version 3 of
+ *     the License, or (at your option) any later version.
+ * 
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ * 
+ *     You should have received a copy of the
+ *     GNU General Public License
+ *     along with this program.
+ *     If not, see <https://www.gnu.org/licenses/>.
+ */
+
+const
+  _libcrash_module =
+    require(
+      "crash-js");
+_json_read =
+  _libcrash_module._json_read;
+_path_join =
+  _libcrash_module._path_join;
+
+function
+  _data_split_get(
+    _chain_id) {
+  const
+    _path =
+      _path_join(
+        ["chains",
+         `${_chain_id}.json`];
+  const
+    _data =
+      _json_read(
+        _path);
+  return _data;
+}
+
+function
+  _data_unified_get(
+    _chain_id) {
+  const
+    _path =
+      _path_join(
+        ["chains",
+         `chains.json`];
+  const
+    _data =
+      _json_read(
+        _path);
+  return _data;
+}
+
+module.exports = {
+  _data_split_get:
+    _data_split_get,
+  _data_unified_get:
+    _data_unified_get
+}
