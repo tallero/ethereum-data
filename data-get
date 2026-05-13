@@ -62,7 +62,8 @@ function
        _chain_id == "" ) {
     _data =
       _data_unified_get();
-  else
+  }
+  else {
     _data =
       _data_split_get(
         _chain_id);
