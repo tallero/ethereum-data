@@ -134,9 +134,11 @@ build-npm:
 	 "build/chains"
 	cp \
 	  "README.md" \
+	  "eslint.config.mjs" \
 	  "package.json" \
 	  "data-get" \
-	  "build"
+	  "build" \
+	  "webpack.config.cjs"
 	cd \
 	  "build" && \
 	npm \
