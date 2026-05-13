@@ -2,7 +2,7 @@
   "name":
     "ethereum-data",
   "version":
-    "0.0.2",
+    "0.0.3",
   "description":
     "Data about Ethereum Virtual Machine networks.",
   "funding": {
@@ -52,8 +52,20 @@
       "https://github.com/tallero"
   },
   "devDependencies": {
+    "crash-js-webpack":
+      "^0.0.3",
     "eslint":
-      "^10.0.3"
+      "^10.0.3",
+    "@eslint/js":
+      "^10.0.1",
+    "globals":
+      "^17.3.0",
+    "safely-serve":
+      "^0.0.9",
+    "webpack":
+      "^5.102.1",
+    "webpack-cli":
+      "^6.0.1"
   },
   "dependencies": {
     "crash-js":
@@ -62,6 +74,8 @@
   "type":
     "commonjs",
   "scripts": {
+    "build-fs-worker":
+      "npx webpack --mode 'production' --config 'fs-worker.webpack.config.cjs' --stats-error-details",
     "build":
       "npm run lint && npm run build-lib",
     "publish-pnm":

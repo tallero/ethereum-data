@@ -135,9 +135,20 @@ build-npm:
 	cp \
 	  "README.md" \
 	  "package.json" \
+	  "data-get" \
 	  "build"
 	cd \
 	  "build" && \
+	npm \
+	  install \
+	  .
+	npm \
+	  install \
+	  --save-dev \
+	  .
+	npm \
+	  run \
+            build
 	npm \
 	  pack
 
