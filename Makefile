@@ -202,10 +202,12 @@ build-npm:
 	 -p \
 	 "build/chains"
 	cp \
+	  -r \
 	  "AUTHORS.rst" \
 	  "COPYING" \
 	  "README.md" \
 	  "Makefile" \
+	  "licenses" \
 	  "eslint.config.mjs" \
 	  "package.json" \
 	  "data-get" \

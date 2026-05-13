@@ -20,6 +20,7 @@
     "chains.json",
     "chains",
     "data-get",
+    "licenses",
     "fs-worker.js",
     "fs-worker.webpack.config.js",
     "serve.json",
