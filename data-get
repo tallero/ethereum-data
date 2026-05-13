@@ -58,7 +58,7 @@ function
   let
     _data;
   if ( typeof(
-         _chain_id == "undefined" ||
+         _chain_id) == "undefined" ||
        _chain_id == "" ) {
     _data =
       _data_unified_get();
