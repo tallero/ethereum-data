@@ -78,7 +78,7 @@ _PHONY_TARGETS=\
   $(_INSTALL_TARGETS_ALL) \
   publish-npm
   
-all: build-man build build-split
+all: build-man build-unified build-split build-npm
 
 check: shellcheck
 
@@ -89,24 +89,6 @@ shellcheck:
 	  jq \
 	    . \
 	    1>&"/dev/null"
-
-build:
-
-	mkdir \
-	 -p \
-	 "build/chains"
-	if [[ ! -e "chains.json" ]]; then \
-	  evmfs \
-	    get \
-	    -o \
-	      "chains.json" \
-	    "evmfs://100/0x87003Bd6C074C713783df04f36517451fF34CBEf/168bdbec23925a4f61ad97a1fd9cabeff0540ce15ad200d9da7b70c15a16f533"; \
-	fi
-	install \
-	  -vDm644 \
-	  "chains.json" \
-	  "build/chains"
-
 
 build-man:
 
@@ -221,6 +203,25 @@ build-split:
 	     "$${_msg[*]}"; \
 	  fi \
 	done
+
+build-unified:
+
+	mkdir \
+	 -p \
+	 "build/chains"
+	if [[ ! -e "chains.json" ]]; then \
+	  evmfs \
+	    get \
+	    -o \
+	      "chains.json" \
+	    "evmfs://100/0x87003Bd6C074C713783df04f36517451fF34CBEf/168bdbec23925a4f61ad97a1fd9cabeff0540ce15ad200d9da7b70c15a16f533"; \
+	fi
+	install \
+	  -vDm644 \
+	  "chains.json" \
+	  "build/chains"
+	make \
+	  build-npm
 
 install: $(_INSTALL_TARGETS)
 
