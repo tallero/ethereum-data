@@ -206,19 +206,18 @@ build-npm:
 	  "AUTHORS.rst" \
 	  "COPYING" \
 	  "README.md" \
-	  "Makefile" \
 	  "licenses" \
 	  "eslint.config.mjs" \
 	  "package.json" \
 	  "data-get" \
 	  "webpack.config.cjs" \
-	  "build" \
-	cd \
-	  "build" && \
+	  "build"
 	make \
 	  build-unified
 	make \
 	  build-split
+	cd \
+	  "build" && \
 	npm \
 	  install \
 	  .
