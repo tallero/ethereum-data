@@ -50,7 +50,9 @@ DOC_FILES=\
       *.md)
 
 _BUILD_TARGETS=\
-  build \
+  build-man \
+  build-npm \
+  build-unified \
   build-split
 _BUILD_TARGETS_ALL=\
   all \
@@ -119,8 +121,8 @@ build-npm:
 	  "eslint.config.mjs" \
 	  "package.json" \
 	  "data-get" \
-	  "build" \
-	  "webpack.config.cjs"
+	  "webpack.config.cjs" \
+	  "build"
 	cd \
 	  "build" && \
 	npm \
