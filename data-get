@@ -80,8 +80,7 @@ function
 }
 
 function
-  _data_unified_get(
-    _chain_id) {
+  _data_unified_get() {
   const
     _path =
       _path_join(
