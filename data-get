@@ -44,11 +44,29 @@ function
     _path =
       _path_join(
         ["chains",
-         `${_chain_id}.json`];
+         `${_chain_id}.json`]);
   const
     _data =
       _json_read(
         _path);
+  return _data;
+}
+
+function
+  _data_get(
+   _chain_id) {
+  let
+    _data;
+  if ( typeof(
+         _chain_id == "undefined" ||
+       _chain_id == "" ) {
+    _data =
+      _data_unified_get();
+  else
+    _data =
+      _data_split_get(
+        _chain_id);
+  }
   return _data;
 }
 
@@ -68,6 +86,8 @@ function
 }
 
 module.exports = {
+  _data_get:
+    _data_get,
   _data_split_get:
     _data_split_get,
   _data_unified_get:
