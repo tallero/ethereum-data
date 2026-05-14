@@ -97,8 +97,11 @@ build-man:
 	_tag="$( \
 	  git \
 	    tag | \
-	  sort \
-	    -V)"; \
+	    sort \
+	      -V | \
+              head \
+	        -n \
+	          1)"; \
 	git \
 	  submodule \
 	    update \
