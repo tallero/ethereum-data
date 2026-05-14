@@ -94,7 +94,7 @@ shellcheck:
 
 build-man:
 
-	_tag="$( \
+	_tag="$$( \
 	  git \
 	    tag | \
 	    sort \
@@ -117,9 +117,9 @@ build-man:
 	cd \
 	  "build/man"; \
 	sed \
-	  "s/insert.version.here/${_tag}/" \
+	  "s/insert.version.here/$${_tag}/" \
 	  -i \
-	  "evm-chains.1.rst"; \
+	  "variables.rst"; \
 	make \
 	  "build-man"
 
