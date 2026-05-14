@@ -94,20 +94,29 @@ shellcheck:
 
 build-man:
 
+	_tag="$( \
+	  git \
+	    tag | \
+	  sort \
+	    -V)"; \
 	git \
 	  submodule \
 	    update \
 	      --init \
-	      "man"
+	      "man"; \
 	mkdir \
 	  -p \
-	  "build"
+	  "build"; \
 	cp \
 	  -r \
 	  "man" \
-	  "build/"
+	  "build"; \
 	cd \
-	  "build/man" && \
+	  "build/man"; \
+	sed \
+	  "s/insert.version.here/${_tag}/" \
+	  -i \
+	  "evm-chains.1.rst"; \
 	make \
 	  "build-man"
 
